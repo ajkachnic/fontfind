@@ -3,12 +3,16 @@ FROM node:14
 EXPOSE 3000
 
 WORKDIR /usr/src/app
-COPY api/package.json ./
-RUN npm install
-COPY api .
+# Install yarn
+RUN npm install -g yarn
+COPY . .
+
+# Install dependencies
+RUN yarn install
+
+# Build
+RUN yarn workspace @fontfind/api build
 
 EXPOSE 3000
-
-RUN npm run build
-
-CMD npm run start
+# Run
+CMD yarn workspace @fontfind/api start 
