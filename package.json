@@ -1,0 +1,9 @@
+{
+  "name": "fontfind",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Andrew Kachnic",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["website", "api", "core"]
+}
