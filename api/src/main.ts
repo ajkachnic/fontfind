@@ -29,10 +29,13 @@ const main = async () => {
   const server = fastify()
   
   server.register(websocket)
-  
+
+  // Hack to support normal redis URLs
   const raccoon = new Raccoon({
-    redisUrl: process.env.REDIS_URL,
-    redisAuth: process.env.REDIS_AUTH,
+    // @ts-ignore
+    redisPort: process.env.REDIS_URL,
+    // @ts-ignore
+    redisUrl: {},
     nearestNeighbors: 5,
     className: 'fonts'
   })
