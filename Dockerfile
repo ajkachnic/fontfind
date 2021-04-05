@@ -9,6 +9,7 @@ COPY . .
 RUN yarn install
 
 # Build
+RUN yarn workspace @fontfind/core build
 RUN yarn workspace @fontfind/api build
 
 EXPOSE 3000
