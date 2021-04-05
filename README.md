@@ -11,6 +11,12 @@ If you'd like to run the application on your own hardware, there are a couple of
 
 From there, install the dependencies with `yarn install`.
 
+Before you can run either service, you need to build `@fontfind/core`. Run this command to do so:
+
+```sh
+yarn workspace @fontfind/core build
+```
+
 ### Running the API
 
 To run the API, you need to create a file in the path `api/.env`. From there, get a [Google Fonts API Key](https://developers.google.com/fonts/). If you'd like to specify a custom redis URL, you can also do that (but it's optional)
