@@ -32,6 +32,7 @@ const main = async () => {
   
   const raccoon = new Raccoon({
     redisUrl: process.env.REDIS_URL,
+    redisAuth: process.env.REDIS_AUTH,
     nearestNeighbors: 5,
     className: 'fonts'
   })
