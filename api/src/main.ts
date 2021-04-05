@@ -8,7 +8,7 @@ import type { ClientMessage, Font } from '@fontfind/core'
 require('dotenv').config()
 
 const FONTS_KEY = process.env.FONTS_KEY
-const port = process.env.PORT || 3000
+const port = parseInt(process.env.PORT || '3000')
 
 // Cache the font listing
 const main = async () => {
@@ -90,7 +90,10 @@ const main = async () => {
         })
       }
       
-      server.listen(port, (err, address) => {
+      server.listen({
+        port: port,
+        host: process.env.NODE_ENV === 'production' ? '0.0.0.0' : undefined
+      }, (err, address) => {
         if (err) {
           console.error(err)
           process.exit(1)
