@@ -8,6 +8,7 @@ import type { ClientMessage, Font } from '@fontfind/core'
 require('dotenv').config()
 
 const FONTS_KEY = process.env.FONTS_KEY
+const port = process.env.PORT || 3000
 
 // Cache the font listing
 const main = async () => {
@@ -39,9 +40,9 @@ const main = async () => {
     nearestNeighbors: 5,
     className: 'fonts'
   })
-  
-  server.get('/fonts', async (request, reply) => {
-    return fonts
+
+  server.get('/', async (_, __) => {
+    return `GET /lookup/:font`
   })
   
   server.get('/socket', { websocket: true }, (connection, req) => {
@@ -89,7 +90,7 @@ const main = async () => {
         })
       }
       
-      server.listen(process.env.PORT || 3000, (err, address) => {
+      server.listen(port, (err, address) => {
         if (err) {
           console.error(err)
           process.exit(1)
