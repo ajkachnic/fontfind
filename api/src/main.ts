@@ -89,7 +89,7 @@ const main = async () => {
         })
       }
       
-      server.listen(parseInt(process.env.PORT || '3000'), (err, address) => {
+      server.listen(process.env.PORT || 3000, (err, address) => {
         if (err) {
           console.error(err)
           process.exit(1)
