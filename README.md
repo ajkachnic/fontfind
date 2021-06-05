@@ -7,7 +7,7 @@
 If you'd like to run the application on your own hardware, there are a couple of prerequisites:
 
 1. Have redis installed locally
-2. Have `yarn` installed (`npm i -g yarn`)
+2. Have `yarn` installed (`npm i -g yarn@1`)
 
 From there, install the dependencies with `yarn install`.
 
